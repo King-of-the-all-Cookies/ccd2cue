@@ -38,7 +38,8 @@ ccd2cue -c <file.ccd>
 ### Command Line Options
 
 | Option | Description |
-|----------|----------| | `-c <file>` | Required parameter. Specifies the path to the input CCD file. |
+|----------|----------|
+| `-c <file>` | Required parameter. Specifies the path to the input CCD file. |
 
 ### Usage Examples
 
