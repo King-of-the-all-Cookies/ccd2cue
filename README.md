@@ -1,3 +1,105 @@
+# English
+
+# CCD2CUE - CCD to CUE File Converter
+
+## Description
+
+**ccd2cue** - Utility for converting CD/DVD image files in CCD (CloneCD) format to CUE files.
+
+## Features
+
+- Converts CCD files to CUE format
+- Automatically detects image files (.img, .bin, .iso)
+- Supports various track types (data and audio)
+- Correctly handles timestamps and track indices
+- No external dependencies (except the C standard library)
+
+## Installation and Compilation
+
+### Requirements
+- GCC compiler
+- C standard library
+- POSIX-compliant operating system
+
+### Compilation
+
+```bash
+gcc -o ccd2cue ccd2cue.c
+```
+
+## Usage
+
+### Basic Syntax
+
+```bash
+ccd2cue -c <file.ccd>
+```
+
+### Command Line Options
+
+| Option | Description |
+|----------|----------| | `-c <file>` | Required parameter. Specifies the path to the input CCD file. |
+
+### Usage Examples
+
+```bash
+# Convert file example.ccd
+./ccd2cue -c example.ccd
+
+# Convert a file in a different directory
+./ccd2cue -c /path/to/disc.ccd
+```
+
+## Input and Output Files
+
+### Input Files
+- **CCD File**: A file with the `.ccd` extension, containing metadata about the disc structure
+- **Image File**: Automatically detected by extensions:
+- `.img`
+- `.bin`
+- `.iso`
+
+### Output Files
+- **CUE File**: Created with the same name as the CCD file, but with the `.cue` extension
+
+### Example File Structure
+
+```
+project_directory/
+├── disc.ccd # Input File
+├── disc.img # Image file (auto-detection)
+└── disc.cue # Output file (created by the program)
+```
+
+## Supported Track Formats
+
+The program supports two main track types:
+
+| Track Type | Description | CUE Format |
+|-----------|-----------|-----------|
+| Data | Computer Data Tracks | `MODE1/2352` |
+| Audio | Audio Tracks | `AUDIO` |
+
+## Time Stamp Processing
+
+The program automatically adjusts time stamps:
+- Subtracts 2 seconds from the time of each track
+- Correctly handles transitions after one minute
+- Maintains frame accuracy
+
+## Return Codes
+
+| Code | Value |
+|-----|----------|
+| `0` | Successful completion |
+| `1` | Error: No CCD file specified |
+| `2` | Error: Unable to read CCD file |
+| `3` | Error: Image file not found |
+
+-----
+
+# Русский
+
 # CCD2CUE - Конвертер CCD в CUE файлы
 
 ## Описание
